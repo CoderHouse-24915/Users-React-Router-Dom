@@ -5,6 +5,8 @@
 	gap: 40px;
 }
 
-.Link {
-	list-style-type: none;
+.CharacterList-Container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
