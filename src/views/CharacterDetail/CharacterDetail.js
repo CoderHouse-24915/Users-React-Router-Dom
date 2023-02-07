@@ -1,48 +1,42 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { useParams } from 'react-router';
-import './CharacterDetail.css';
-import CharacterCard from '../../components/CharacterCard/CharacterCard';
-import Spinner from '../../components/Spinner/Spinner';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useParams } from "react-router";
+import "./CharacterDetail.css";
+import CharacterCard from "../../components/CharacterCard/CharacterCard";
+import Spinner from "../../components/Spinner/Spinner";
 
 const CharacterDetail = () => {
-	const [character, setCharacter] = useState([]);
-	const [isLoading, setIsLoading] = useState(true);
+  const [character, setCharacter] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-	// console.log(character);
+  console.log(character);
 
-	let id = useParams();
+  let { id } = useParams();
 
-	let userID = id.id;
+  // console.log(userID);
 
-	// console.log(userID);
+  useEffect(() => {
+    axios(`https://jsonplaceholder.typicode.com/users/${id}`).then((res) =>
+      setCharacter(res.data)
+    );
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, [id]);
 
-	useEffect(() => {
-		axios(`https://breakingbadapi.com/api/characters/${userID}`).then((res) =>
-			setCharacter(res.data)
-		);
-		setTimeout(() => {
-			setIsLoading(false);
-		}, 1000);
-	}, [userID]);
-
-	return (
-		<div className='CharacterList-Container'>
-			{isLoading ? (
-				<Spinner />
-			) : (
-				<div className='CharacterList-detail'>
-					{character.map((char) => {
-						return (
-							<div key={char.char_id}>
-								<CharacterCard data={char} />
-							</div>
-						);
-					})}
-				</div>
-			)}
-		</div>
-	);
+  return (
+    <div className="CharacterList-Container">
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <div className="CharacterList-detail">
+          <div key={character.id}>
+            <CharacterCard data={character} />
+          </div>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default CharacterDetail;
