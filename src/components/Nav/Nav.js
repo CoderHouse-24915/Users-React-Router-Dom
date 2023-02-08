@@ -1,22 +1,42 @@
-import './Nav.css';
-import { Link } from 'react-router-dom';
+import "./Nav.css";
+// import { Link } from "react-router-dom";
 
-const NavBar = () => {
-	return (
-		<nav className='Navigation'>
-			<ul className='List-ul'>
-				<Link to='/' className='Link'>
-					Home
-				</Link>
-				<Link to='/about' className='Link'>
-					About
-				</Link>
-				<Link to='/contact' className='Link'>
-					Contact
-				</Link>
-			</ul>
-		</nav>
-	);
+import { NavLink } from "react-router-dom";
+
+let activeStyle = {
+  color: "red",
+  backgroundColor: "white",
+  padding: "10px",
 };
 
-export default NavBar;
+const Nav = () => {
+  return (
+    <nav className="Navigation">
+      <ul className="List-ul">
+        <NavLink
+          to="/"
+          className="NavLink"
+          style={({ isActive }) => (isActive ? activeStyle : undefined)}
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="/about"
+          className="NavLink"
+          style={({ isActive }) => (isActive ? activeStyle : undefined)}
+        >
+          About
+        </NavLink>
+        <NavLink
+          to="/contact"
+          className="NavLink"
+          style={({ isActive }) => (isActive ? activeStyle : undefined)}
+        >
+          Contact
+        </NavLink>
+      </ul>
+    </nav>
+  );
+};
+
+export default Nav;

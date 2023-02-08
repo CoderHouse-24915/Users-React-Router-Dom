@@ -2,17 +2,23 @@
 	display: flex;
 	background: #000;
 	min-height: 5vh;
-}
-
-ul {
+	width: 100%;
+  }
+  
+  ul {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 	width: 100%;
-}
-
-.Link {
-	color: white;
+	text-decoration: none;
+  }
+  
+  .Link {
+	color: red;
 	list-style: none;
 	font-size: 20px;
-}
+  }
+  
+  a {
+	text-decoration: none;
+  }
