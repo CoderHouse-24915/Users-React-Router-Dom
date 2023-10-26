@@ -1,8 +1,17 @@
-# A first-level heading
-## A second-level heading
+# Players Shirst Ecommerce
+## Este proyecto pertenece al curso de React de CoderHouse en el cual implemtamos: 
+
+* React
+* Components
+* React Router Dom
++ Context Api
+* Material UI
+* Material Icons
+* Firebase
+
 ### A third-level heading
 
-> Text that is a quote
+> Este proyecto es un ecomerce que permite a los usuarios realizar compras de productos que fueron alojados en una base de datos de Firstore (Firebase)
 
 Use `git status` to list all new or modified files that haven't yet been committed.
 
